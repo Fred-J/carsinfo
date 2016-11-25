@@ -1,1 +1,143 @@
-/* CSS declarations go here */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4, footer {
+    font-size: 1.75rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+h6 {
+    font-size: 1.25rem;
+}
+
+li {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
+}
+#header, input, footer, button, textarea {
+    font-size: 1.5rem;
+}
+div#header {
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+    padding-top: 0.5rem;
+    height: 3.5rem;
+}
+.busy {
+    color: red;;
+}
+input, p {
+    margin: 0.25em;
+    padding: 0.25em;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 1px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    justify-content: space-around;
+}
+
+button {
+    border-radius: 1em;
+    background-color: lightgray;
+    margin: auto;
+    text-align: center;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0.5em;
+}
+
+div#main {
+    top: 3.6rem;
+    position: absolute;
+    width: 100%;
+}
+#login-div {
+    z-index: 1;
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 0.5rem;
+    top: 3.5rem;
+    right: 0.5rem;
+    position: fixed;
+}
+div#content {
+    position: relative;
+    top: 2rem;
+}
+#plateNum {
+    text-transform: uppercase;
+    margin: 1rem;
+}
+.note {
+    color: orange;
+    font-size: smaller;
+}

@@ -1,25 +1,48 @@
 <head>
   <title>carsinfo</title>
 </head>
-
 <body>
-  <h1>Welcome to Meteor! -up rev. 2</h1>
-
-  {{> hello}}
-  {{> info}}
+  {{> header}}
+  <div id="main">
+    <div id="login-div">{{> loginButtons align='right'}}</div>
+    <div id="content">
+      {{#if currentUser}}
+        {{#if isVerified}}
+          {{> content}}
+          {{> feedback}}
+          {{> footer}}
+        {{else}}
+          <p>Check your email for your verification link!</p>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="header">
+  <div id="header">{{{header}}}</div>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="content">
+  <input type="text" id="plateNum" placeholder="Enter NSW Plate">
+  {{> results}}
+</template>
+
+<template name="footer">
+  <footer>
+    <button id="clear">CLEAR</button>
+    <button id="info">INFO</button>
+  </footer>
+</template>
+
+<template name="results">
+  <p id="result">VIN: {{{display.vin}}} <br> Engine: {{{display.engineSize}}} <br> {{{display.rmsDescription}}}</p>
+</template>
+
+<template name="feedback">
+  <div>
+    <textarea id="feedback" placeholder="Your comments" rows="4" cols="50"></textarea>
+  </div>
+  <button id="email">SEND COMMENTS</button> <p id="response"></p>
+
 </template>
