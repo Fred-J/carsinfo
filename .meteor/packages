@@ -22,7 +22,8 @@ accounts-ui
 accounts-password
 http
 email
-reactive-dict
 matb33:collection-hooks
 themeteorchef:bert
 meteorhacks:cluster
+session
+ongoworks:ddp-login

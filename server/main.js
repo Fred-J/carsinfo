@@ -4,6 +4,35 @@ import { Meteor } from 'meteor/meteor';
 //Cluster.register('carsinfo');
 //let ais2Conn = Cluster.discoverConnection('ais2');
 
+const login = ( function () {
+  const userID = 'ES0911';
+  return {
+    getUsername: () => {
+      return 'ES09111111';  //comment this out when running on the web
+      const doc = Meteor.users.findOne({'rmsLoginParam.userID': userID});
+      return (userID + doc.rmsLoginParam.password);
+    },
+    getPassword: () => {
+      return '1111';  //comment this out when running on the web
+      const doc = Meteor.users.findOne({'rmsLoginParam.userID': userID});
+      return doc.rmsLoginParam.password;
+    }
+  }
+}());
+
+smtp = {
+  username: 'sam@totalcareauto.com.au',
+  password: 'sam19351',
+  incomingServer: 'pop.ipage.com',
+  incomingPort: '110',
+  outgoingServer: 'smtp.ipage.com',
+  outgoingPort: '587'
+};
+
+process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.outgoingServer) + ':' + smtp.outgoingPort;
+Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false});
+
+
 Meteor.startup(() => {
 
   smtp = {
@@ -16,7 +45,7 @@ Meteor.startup(() => {
   };
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.outgoingServer) + ':' + smtp.outgoingPort;
-  Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false});
+  //Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false});
 });
 const makes = {
   "FOR": "FORD",
@@ -86,7 +115,6 @@ Meteor.methods({
     //ais2Conn.call('engineUpdate', param, () => {})
   },
   'vinUpdate': (param) => {
-    console.log('calling vinUpdate in carsInfo');
     //ais2Conn.call('vinUpdate', param, () => {});
   }
 });

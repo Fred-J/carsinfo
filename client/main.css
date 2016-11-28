@@ -132,6 +132,7 @@ div#main {
 div#content {
     position: relative;
     top: 2rem;
+    padding: 0.5rem;
 }
 #plateNum {
     text-transform: uppercase;
